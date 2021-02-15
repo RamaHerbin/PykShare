@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+{#    <link rel="stylesheet" href="/style.css">#}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box !important;
+	list-style: none;
+	list-style-type: none;
+	text-decoration: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+#pykshare {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    background: red;
+    position: fixed;
+    top: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    min-height: 100vh;
+    padding-top: 5vh;
+    background:  #fafafa;
+    font-family: 'Poppins' !important;
+    font-weight: 300;
+    line-height: 1.5;
+    width: 100vw;
+    margin: 0 0;
+    // font-size: 112%;
+  }
+
+.posts {
+    margin: 35px;
+    background: linear-gradient(180deg, #FCFBFB 0%, rgba(255, 255, 255, 0.72) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 80vw;
+    height: 80vh;
+}
+
+.posts img {
+    margin-left: 10vw;
+    border-radius: 25px;
+    min-width: 50%;
+    max-height: 80%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.text-section {
+    height: 100%;
+    border-left: 1px solid #A9A9A9;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    background: #F3F3F3;
+    width: 20vw;
+}
+
+    </style>
+    <title>PykShare</title>
+</head>
+<body>
+    <header>
+        <div>
+         <span>Hello, @{{ request.user }}</span>
+            <span><a href="{% url 'logout' %}">Se déconnecter</a></span>
+        </div>
+        <a id="pykshare" href="/feed">PykShare</a>
+        <span><a href="/new"><img alt="Ajoutez un post" src="app/img/add.png"></a></span>
+    </header>
+    <section class="container">
+        {% block content %}
+        {% endblock %}
+    </section>
+</body>
+</html>
