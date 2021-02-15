@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    {% for post in object_list %}
+     <div class="posts">
+         <img alt="post content" src="{{ post.picture.image.url }}">
+        <div class="text-section">
+            <strong>{{ post.author.username }}</strong>
+            <p><em>{{ post.uploaded_at }}</em><br>{{ post.comment.content }}</p>
+        </div>
+     </div>
+    {% endfor %}
+{% endblock %}
+
