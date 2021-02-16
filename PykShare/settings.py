@@ -121,6 +121,7 @@ USE_TZ = True
 
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login/'

@@ -105,7 +105,8 @@ body {
             <span><a href="{% url 'logout' %}">Se déconnecter</a></span>
         </div>
         <a id="pykshare" href="/feed">PykShare</a>
-        <span><a href="/new"><img alt="Ajoutez un post" src="app/img/add.png"></a></span>
+{#        <span><a href="{% url 'newpost' %}"><img alt="Ajoutez un post" src="app/img/add.png"></a></span>#}
+        <span><a href="{% url 'newpost' %}">Ajoutez</a></span>
     </header>
     <section class="container">
         {% block content %}
