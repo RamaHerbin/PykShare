@@ -19,7 +19,7 @@ from django.urls import path
 
 from PykShare import settings
 from app import views
-from app.views import PostList, PostCreate
+from app.views import PostList, PostCreate, AddCommentView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,5 @@ urlpatterns = [
     path('logout/', views.logoutUser, name="logout"),
     path('login/', views.LoginPage.as_view(), name='login'),
     path('newpost/', PostCreate.as_view(), name='newpost'),
-
+    path('feed/<int:pk>/newcomment/', AddCommentView.as_view(), name='newcomment'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

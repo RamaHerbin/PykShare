@@ -3,13 +3,13 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.forms import forms
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic import ListView, CreateView
 
-from app.form import CreateUserForm
+from app.form import CreateUserForm, CreateCommentForm
 from app.models import Comment, Like, Post
 
 
@@ -74,3 +74,17 @@ class PostCreate(CreateView):
     def form_valid(self, form):
         form.instance.person_id = self.kwargs.get('pk')
         return super(PostCreate, self).form_valid(form)
+
+
+class AddCommentView(CreateView):
+    model = Comment
+    form_class = CreateCommentForm
+    template_name = 'app/add_comment.html'
+    # fields = '__all__'
+    success_url = reverse_lazy('feed')
+
+    def form_valid(self, form):
+        #               model                 django
+        form.instance.id_user = self.request.user
+        form.instance.id_post = Post.objects.get(id=self.kwargs['pk'])
+        return super().form_valid(form)
