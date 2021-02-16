@@ -8,8 +8,9 @@
             <p><em>{{ post.uploaded_at }}</em></p>
             <div class="comments-section">
                 {%  if not post.comments.all %}
-                    No comment. <a href="#">Add comment ?</a>
+                    No comment. <a href="{%  url 'newcomment' post.pk %}">Add comment ?</a>
                 {% else %}
+                    <a href="{%  url 'newcomment' post.pk %}">Add comment</a><br>
                     {% for comment in post.comments.all %}
                       <strong> {{ comment.id_user }} - {{ comment.date }} </strong>
                     <br>
