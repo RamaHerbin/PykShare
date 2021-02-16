@@ -2,10 +2,21 @@
 {% block content %}
     {% for post in object_list %}
      <div class="posts">
-         <img alt="post content" src="{{ post.picture.image.url }}">
+         <img alt="post content" src="{{ post.image.url }}">
         <div class="text-section">
             <strong>{{ post.author.username }}</strong>
-            <p><em>{{ post.uploaded_at }}</em><br>{{ post.comment.content }}</p>
+            <p><em>{{ post.uploaded_at }}</em></p>
+            <div class="comments-section">
+                {%  if not post.comments.all %}
+                    No comment. <a href="#">Add comment ?</a>
+                {% else %}
+                    {% for comment in post.comments.all %}
+                      <strong> {{ comment.id_user }} - {{ comment.date }} </strong>
+                    <br>
+                    {{ comment.content }}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
      </div>
     {% endfor %}

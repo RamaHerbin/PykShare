@@ -23,7 +23,6 @@ from app.views import PostList, PostCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
     path('feed/', PostList.as_view(), name='feed'),
     path('register/', views.RegisterPage.as_view(), name='register'),
     path('logout/', views.logoutUser, name="logout"),
