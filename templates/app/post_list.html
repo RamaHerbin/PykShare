@@ -6,6 +6,7 @@
         <div class="text-section">
             <strong>{{ post.author.username }}</strong>
             <p><em>{{ post.uploaded_at }}</em></p>
+            <a href="{% url 'updatepost' post.pk %}">Edit</a>
             <div class="comments-section">
                 {%  if not post.comments.all %}
                     No comment. <a href="{%  url 'newcomment' post.pk %}">Add comment ?</a>

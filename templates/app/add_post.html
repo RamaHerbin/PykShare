@@ -1,16 +1,16 @@
 {% extends 'app/base.html' %}
 {% block title %}
-Comment post
+Create post
 {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
             <span>Hello, @{{ request.user }}</span>
-        <h1>Add comment</h1><br>
+        <h1>Add post</h1><br>
         <div>
-            <form method="post">
-             {% csrf_token %}
-              {{ form.content }}
-                <button class="button">Add !</button>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Post">
             </form>
         </div>
     {% else %}
