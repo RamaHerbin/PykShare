@@ -10,7 +10,7 @@ from django.views import View
 from django.views.generic import ListView, CreateView
 
 from app.form import CreateUserForm
-from app.models import Comment, Person, Like, Picture, Post
+from app.models import Comment, Like, Post
 
 
 class RegisterPage(View):
