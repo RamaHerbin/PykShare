@@ -19,16 +19,19 @@ from django.urls import path
 
 from PykShare import settings
 from app import views
-from app.views import PostList, PostCreate, AddCommentView, PostUpdate
+from app.views import PostList, PostCreate, AddCommentView, PostUpdate, PostDelete, CommentDelete, AddLike, Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Home.as_view(), name='home'),
     path('feed/', PostList.as_view(), name='feed'),
     path('register/', views.RegisterPage.as_view(), name='register'),
     path('logout/', views.logoutUser, name="logout"),
     path('login/', views.LoginPage.as_view(), name='login'),
     path('newpost/', PostCreate.as_view(), name='newpost'),
-    path('edit/<int:pk>', PostUpdate.as_view(), name='updatepost'),
-    path('delete/<int:pk>', PostUpdate.as_view(), name='daletepost'),
+    path('post/edit/<int:pk>', PostUpdate.as_view(), name='updatepost'),
+    path('post/delete/<int:pk>', PostDelete.as_view(), name='deletepost'),
+    path('like/<int:pk>', AddLike, name='like_post'),
     path('feed/<int:pk>/newcomment/', AddCommentView.as_view(), name='newcomment'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('comment/delete/<int:pk>', CommentDelete.as_view(), name='deletecomment'),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
