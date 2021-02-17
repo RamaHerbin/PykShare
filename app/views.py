@@ -1,16 +1,20 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.forms import forms
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 
 from app.form import CreateUserForm, CreateCommentForm, CreatePostForm
 from app.models import Comment, Like, Post
+
+
+class Home(TemplateView):
+    template_name = 'app/home.html'
 
 
 class RegisterPage(View):
@@ -63,6 +67,14 @@ def logoutUser(request):
 class PostList(ListView):
     model = Post
 
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(PostList, self).get_context_data(*args, **kwargs)
+    #     stuff = Comment.objects.filter(id=self.kwargs['pk'])
+    #     # stuff = get_object_or_404(Post, id=self.kwargs['pk'])
+    #     total_likes = stuff.total_likes()
+    #     context["total_likes"] = total_likes
+    #     return context
+
 
 # View to create a post
 @method_decorator(login_required, name='dispatch')
@@ -91,6 +103,14 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Post
     template_name = 'app/delete_post.html'
+    success_url = reverse_lazy('feed')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.author != self.request.user:
+            return redirect(self.success_url)
+        return super().post(request, *args, **kwargs)
+
 
 @method_decorator(login_required, name='dispatch')
 class AddCommentView(CreateView):
@@ -104,3 +124,17 @@ class AddCommentView(CreateView):
         form.instance.id_user = self.request.user
         form.instance.id_post = Post.objects.get(id=self.kwargs['pk'])
         return super().form_valid(form)
+
+
+@method_decorator(login_required, name='dispatch')
+class CommentDelete(DeleteView):
+    model = Comment
+    template_name = 'app/delete_comment.html'
+    success_url = reverse_lazy('feed')
+
+
+def AddLike(request, pk):
+    # On prend le button avec name="post_id" (l.16 post_list.html)
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('feed'))

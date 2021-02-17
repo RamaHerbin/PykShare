@@ -1,26 +1,44 @@
 {% extends 'app/base.html' %}
 {% block content %}
     {% for post in object_list %}
-     <div class="posts">
-         <img alt="post content" src="{{ post.image.url }}">
-        <div class="text-section">
-            <strong>{{ post.author.username }}</strong>
-            <p><em>{{ post.uploaded_at }}</em></p>
-            <a href="{% url 'updatepost' post.pk %}">Edit</a>
-            <div class="comments-section">
-                {%  if not post.comments.all %}
-                    No comment. <a href="{%  url 'newcomment' post.pk %}">Add comment ?</a>
-                {% else %}
-                    <a href="{%  url 'newcomment' post.pk %}">Add comment</a><br>
-                    {% for comment in post.comments.all %}
-                      <strong> {{ comment.id_user }} - {{ comment.date }} </strong>
-                    <br>
-                    {{ comment.content }}
-                    {% endfor %}
-                {% endif %}
+        <div class="posts">
+            <img alt="post content" src="{{ post.image.url }}">
+            <div class="text-section">
+                <div>
+                    <div class="author-date-post">
+                        <strong>Par {{ post.author.username }}</strong>
+                        <p><em>Uploadé le {{ post.uploaded_at }}</em></p>
+                    </div>
+                    {% if post.author.username == user.username %}
+                        <div class="modify-buttons">
+                            <a href="{% url 'updatepost' post.pk %}">Edit</a>
+                            <a href="{% url 'deletepost' post.pk %}">Delete</a>
+                        </div>
+                </div>
+                    {% endif %}
+                <div class="comments-section">
+                <div class="like-section">
+                    <form action="{% url 'like_post' post.pk %}" method="post">
+                        {% csrf_token %}
+                        <a type="submit" name="post_id" value="{{ post.id }}">Like</a>
+                        <span>{{ total_likes }}</span>
+                    </form>
+                </div>
+                    {% if not post.comments.all %}
+                        <div class="no-comment"><div>No comment. <a href="{% url 'newcomment' post.pk %}"> Add comment ?</a></div></div>
+                    {% else %}
+                        <div class="add-comment"><a href="{% url 'newcomment' post.pk %}">Add comment</a></div>
+                        {% for comment in post.comments.all %}
+                            <div class="comment-single">
+                                <strong> {{ comment.id_user }} - {{ comment.date.date }} </strong>
+                                <p> {{ comment.content }}</p>
+                                <a href="{% url 'deletecomment' comment.pk %}">Delete</a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
-     </div>
     {% endfor %}
 {% endblock %}
 
