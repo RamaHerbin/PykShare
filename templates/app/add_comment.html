@@ -4,15 +4,17 @@ Comment post
 {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
+                <div class="add-section">
             <span>Hello, @{{ request.user }}</span>
         <h1>Add comment</h1><br>
         <div>
-            <form method="post">
+            <form class="add-section" method="post">
              {% csrf_token %}
               {{ form.content }}
-                <button class="button">Add !</button>
+                <button  class="button input">Add !</button>
             </form>
         </div>
+                </div>
     {% else %}
         <h1>NOT ALLOWED</h1>
     {% endif %}

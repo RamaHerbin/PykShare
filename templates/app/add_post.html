@@ -1,17 +1,19 @@
 {% extends 'app/base.html' %}
 {% block title %}
-Create post
+    Create post
 {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-            <span>Hello, @{{ request.user }}</span>
-        <h1>Add post</h1><br>
-        <div>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Post">
-            </form>
+        <div class="add-section">
+                <span>Connected as @{{ request.user }}</span>
+            <h1>Add post</h1><br>
+            <div class="add-section">
+                <form class="add-section" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="input" type="submit" value="Post">
+                </form>
+            </div>
         </div>
     {% else %}
         <h1>NOT ALLOWED</h1>

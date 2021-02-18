@@ -6,11 +6,11 @@ Update post
     {% if user.is_authenticated %}
             <span>Hello, @{{ request.user }}</span>
         <h1>Update post</h1><br>
-        <div>
-            <form method="POST" enctype="multipart/form-data">
+        <div class="add-section">
+            <form class="add-section" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Post">
+                <input class="input" type="submit" value="Post">
             </form>
         </div>
     {% else %}
