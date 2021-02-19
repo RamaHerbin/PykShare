@@ -10,7 +10,7 @@ from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 
 from app.form import CreateUserForm, CreateCommentForm, CreatePostForm
-from app.models import Comment, Like, Post
+from app.models import Comment, Post
 
 
 class Home(TemplateView):
