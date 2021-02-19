@@ -1,345 +1,352 @@
-   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 
-        *,
-        *::before,
-        *::after {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box !important;
-            list-style: none;
-            list-style-type: none;
-            text-decoration: none;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-        }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-        a {
-            text-decoration: none;
-            color: black;
+textarea {
+  padding: 10px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  font-family: "Poppins" !important;
+  height: 100px;
+}
 
-        }
+#user-authentification {
+  color: white;
+  text-align: center;
+}
 
-        textarea {
-            padding: 10px;
-            line-height: 1.5;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 1px 1px 1px #999;
-            font-family: 'Poppins' !important;
-            height: 100px;
-        }
+#pykshare {
+  font-weight: 900;
+  font-size: 30px;
+}
 
-        #pykshare {
-            font-weight: 900;
-            font-size: 30px;
-        }
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  min-height: 80px;
+  background: #007bff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
 
-        header {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100vw;
-            min-height: 80px;
-            background: #007bff;
-            position: fixed;
-            top: 0;
-        }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 5vh;
+  background: #fafafa;
+  font-family: "Poppins" !important;
+  font-weight: 300;
+  line-height: 1.5;
+  width: 100vw;
+  margin: 0 0;
+  color: #000000;
+  overflow-x: hidden;
+}
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background: #fff;
-            min-height: 100vh;
-            padding-top: 5vh;
-            background: #fafafa;
-            font-family: 'Poppins' !important;
-            font-weight: 300;
-            line-height: 1.5;
-            width: 100vw;
-            margin: 0 0;
-            color: #000000;
-        / / font-size: 112 %;
-        }
+.div-img-content {
+  width: 66%;
+}
 
-        .posts {
-            margin: 35px;
-            background: linear-gradient(180deg, #FCFBFB 0%, rgba(255, 255, 255, 0.72) 100%);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-            width: 80vw;
-            height: 80vh;
-        }
+.posts {
+  margin: 35px;
+  background: linear-gradient(180deg, #fcfbfb 0%, rgba(255, 255, 255, 0.72) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 80vw;
+  height: 80vh;
+  min-height: 600px;
+}
 
-        .posts img {
-            margin-left: 10vw;
-            border-radius: 25px;
-            min-width: 50%;
-            max-height: 80%;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        }
+.posts img {
+  margin-left: 10vw;
+  border-radius: 25px;
+  min-width: 50%;
+  max-height: 80vmin;
+}
 
-        a {
-            font-size: 20px;
-            background: #FFFFFF;
-            -webkit-box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #fff;
-            color: #000;
-            mix-blend-mode: screen;
-            opacity: 0.9;
-            height: 50px;
-            cursor: pointer;
+a {
+  font-size: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px black;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #fff;
+  color: #000;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  height: 50px;
+  cursor: pointer;
+}
 
-        }
+a:hover {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}
 
-        a:hover {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            cursor: pointer;
-        }
+.input {
+  margin: 18px;
+  font-size: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px black;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #fff;
+  color: #000;
+  opacity: 0.9;
+  height: 50px;
+  cursor: pointer;
+}
 
+.input:hover {
+  background: #007bff;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}
 
-        .input {
-            margin: 18px;
+.text-section a {
+  font-size: 30px;
+  background: #000;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #23c33e;
+  color: #fff;
+  height: 4.5vw;
+  opacity: 1;
+  cursor: pointer;
+}
 
-            font-size: 20px;
-            background: #FFFFFF;
-            -webkit-box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #fff;
-            color: #000;
-            opacity: 0.9;
-            height: 50px;
-            cursor: pointer;
+.text-section a:hover {
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+  padding: 1vh 1vw;
+  cursor: pointer;
+}
 
-        }
+.like {
+  font-size: 30px;
+  background: #000;
+  box-shadow: 0px 4px 4px rgba(0, 115, 255, 0.25);
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #007bff;
+  color: #fff;
+  height: 3vw;
+  opacity: 1;
+  cursor: pointer;
+}
 
-        .input:hover {
-            background: #007bff;
-            color: white;
-            border: 2px solid white;
-            cursor: pointer;
-        }
+.likes {
+  color: #007bff;
+  font-weight: 900;
+  font-size: 30px;
+}
 
-        .text-section a {
-            font-size: 30px;
-            background: #000;
-            box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #23c33e;
-            color: #fff;
-            height: 4.5vw;
-            opacity: 1;
-            cursor: pointer;
+.like:hover {
+  background-color: #0768cf !important;
+  color: white !important;
+  border: 2px solid white !important;
+}
 
-        }
+.add-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.add-section p {
+  margin: 10px;
+}
 
-        .text-section a:hover {
-            background: transparent;
-            color: #111;
-            border: 2px solid #111;
-            padding: 1vh 1vw;
-            cursor: pointer;
+.add-section p a {
+  font-size: 20px;
+  background: #000;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #23c33e;
+  color: #fff;
+  opacity: 1;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 
-        }
+.add-section p a:hover {
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+  padding: 1vh 1vw;
+  cursor: pointer;
+}
 
+.comments-section {
+  margin-top: 25px;
+}
 
-        .like {
-            font-size: 30px;
-            background: #000;
-            box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #23c33e;
-            color: #fff;
-            height: 4.5vw;
-            opacity: 1;
-            cursor: pointer;
-        }
+.text-section {
+  height: 100%;
+  border-left: 1px solid #a9a9a9;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background: #ecf0f3;
+  width: 33%;
+  color: black;
+}
 
-        .like:hover {
-            background-color: #111;
-        !important;
-            color: blue !important;
-            border: 2px solid blue !important;
-        }
+.comment-single {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
 
-        .add-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+.comment-single strong {
+  margin: 0 15px;
+  min-width: 70px;
+  max-width: 125px;
+}
 
-        .add-section p {
-            margin: 10px;
-        }
+.comment-single a {
+  margin: 0 15px;
+}
 
-        .add-section p a {
-            font-size: 20px;
-            background: #000;
-            box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #23c33e;
-            color: #fff;
-            opacity: 1;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
+.comment-single a {
+  font-size: 15px;
+  background: #dd0000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 4px #ff5733;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 0;
+  mix-blend-mode: multiply;
+  color: #fff;
+  opacity: 1;
+  height: 20px;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+}
 
-        .add-section p a:hover {
-            background: transparent;
-            color: #111;
-            border: 2px solid #111;
-            padding: 1vh 1vw;
-            cursor: pointer;
+.comment-single a:hover {
+  padding: 0;
+}
 
-        }
+.author-date-post {
+  margin-top: 3vh;
+  margin-left: 3vw;
+}
 
-        .comments-section {
-            margin-top: 25px;
-        }
+.modify-buttons {
+  margin: 3vh 0;
+  text-align: center;
+}
 
-        .text-section {
-            height: 100%;
-            border-left: 1px solid #A9A9A9;
-            box-sizing: border-box;
-            border-radius: 25px;
-            background: #ecf0f3;
-            width: 30vw;
-            color: black;
-        }
+.add-comment {
+  text-align: center;
+  margin-bottom: 4vh;
+}
 
-        .comment-single {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-        }
+.modify-buttons a {
+  font-size: 20px;
+  background: #dd0000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 4px #ff5733;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  color: #ffffff;
+  opacity: 1;
+  height: 30px;
+  cursor: pointer;
+}
 
-        .comment-single strong {
-            margin: 0 2vw;
-        }
+.modify-buttons a:nth-child(1) {
+  font-size: 20px;
+  background: #f3bd20;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 4px #f3bd20;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  color: #ffffff;
+  opacity: 1;
+  height: 30px;
+  cursor: pointer;
+}
 
-        .comment-single a {
-            margin: 0 2vw;
-        }
+.modify-buttons a:hover {
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+  padding: 1vh 1vw;
+  cursor: pointer;
+}
 
-        .comment-single a {
-            font-size: 15px;
-            background: #DD0000;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            -webkit-box-shadow: 0px 4px 4px rgb(255 87 51 / 90%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 0;
-            mix-blend-mode: multiply;
-            color: #fff;
-            opacity: 1;
-            height: 20px;
-            width: 60px;
-            height: 25px;
-            text-align: center;
-        }
+.like-section {
+  margin: 8vh 0;
+  text-align: center;
+}
 
-        .comment-single a:hover {
-            padding: 0;
-        }
+.no-comment {
+  margin-bottom: 3vh;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  min-width: 150px;
+}
 
-        .author-date-post {
-            margin-top: 3vh;
-            margin-left: 3vw;
-        }
+.no-comment div span {
+  margin-bottom: 3vh;
+}
 
-        .modify-buttons {
-            margin: 3vh 0;
-            text-align: center;
-        }
-
-        .add-comment {
-            text-align: center;
-            margin-bottom: 4vh;
-        }
-
-        .modify-buttons a {
-            font-size: 20px;
-            background: #DD0000;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            -webkit-box-shadow: 0px 4px 4px rgb(255 87 51 / 90%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            color: #FFFFFF;
-            opacity: 1;
-            height: 30px;
-            cursor: pointer;
-        }
-
-        .modify-buttons a:nth-child(1) {
-            font-size: 20px;
-            background: #F3BD20;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            -webkit-box-shadow: 0px 4px 4px rgb(243 189 32 / 90%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            color: #FFFFFF;
-            opacity: 1;
-            height: 30px;
-            cursor: pointer;
-        }
-
-        .like-section {
-            margin: 8vh 0;
-            text-align: center;
-        }
-
-        .no-comment {
-            margin-bottom: 3vh;
-            text-align: center;
-            padding-left: 50px;
-            padding-right: 50px;
-
-            min-width: 150px;
-        }
-
-        .no-comment div span {
-            margin-bottom: 3vh;
-        }
-
-        .no-comment > div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            justify-items: center;
-        }
+.no-comment > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+/*# sourceMappingURL=app.css.map */

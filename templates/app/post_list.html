@@ -1,58 +1,60 @@
 {% extends 'app/base.html' %}
 {% block content %}
-    {% for post in object_list %}
-        <div class="posts">
-            <img alt="post content" src="{{ post.image.url }}">
-            <div class="text-section">
-                <div>
-                    <div class="author-date-post">
-                        <strong>Par {{ post.author.username }}</strong>
-                        <p><em>Uploadé le {{ post.uploaded_at }}</em></p>
-                    </div>
-
-        {% if post.author.username == user.username %}
-                    <div class="modify-buttons">
-                        <a href="{% url 'updatepost' post.pk %}">Edit</a>
-                        <a href="{% url 'deletepost' post.pk %}">Delete</a>
-                    </div>
-        {% endif %}
-
-                </div>
-
-
-                <div class="comments-section">
-                <div class="like-section">
-
-
-                    <form action="{% url 'like_post' post.pk %}" method="post">
-                        {% csrf_token %}
-                        <button class="like" type="submit" name="post_id" value="{{ post.id }}">Like</button>
-                    {% if post.total_likes > 1 %}
-                        <span>{{ post.total_likes }} likes</span>
-                    {% else %}
-                        <span>{{ post.total_likes }} like</span>
-                    {% endif %}
-                    </form>
-
-
-                </div>
-                    {% if not post.comments.all %}
-                        <div class="no-comment"><div><span>No comment.</span> <a href="{% url 'newcomment' post.pk %}"> Add comment ?</a></div></div>
-                    {% else %}
-                        <div class="add-comment"><a href="{% url 'newcomment' post.pk %}">Add comment</a></div>
-                        {% for comment in post.comments.all %}
-                            <div class="comment-single">
-                                <strong> Par {{ comment.id_user }} :<br> {{ comment.date.date }} </strong>
-                                <p> {{ comment.content }}</p>
-                                 {% if comment.id_user.username == user.username %}
-                                <a href="{% url 'deletecomment' comment.pk %}">Delete</a>
-                            {% endif %}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
+{% for post in object_list %}
+<div class="posts">
+    <div class="div-img-content">
+        <img alt="post content" src="{{ post.image.url }}">
+    </div>
+    <div class="text-section">
+        <div>
+            <div class="author-date-post">
+                <strong>Par @{{ post.author.username }}</strong>
+                <p><em>Uploadé le {{ post.uploaded_at }}</em></p>
             </div>
-        </div>
-    {% endfor %}
-{% endblock %}
 
+            {% if post.author.username == user.username %}
+            <div class="modify-buttons">
+                <a href="{% url 'updatepost' post.pk %}">Edit</a>
+                <a href="{% url 'deletepost' post.pk %}">Delete</a>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="comments-section">
+            <div class="like-section">
+
+                <form action="{% url 'like_post' post.pk %}" method="post">
+                    {% csrf_token %}
+                    <button class="like" type="submit" name="post_id" value="{{ post.id }}">Like</button>
+                    {% if post.total_likes > 1 %}
+                    <span class="likes">{{ post.total_likes }} likes</span>
+                    {% else %}
+                    <span class="likes">{{ post.total_likes }} like</span>
+
+                    {% endif %}
+                </form>
+
+
+            </div>
+            {% if not post.comments.all %}
+            <div class="no-comment">
+                <div><span>No comment.</span> <a href="{% url 'newcomment' post.pk %}"> Add comment ?</a></div>
+            </div>
+            {% else %}
+            <div class="add-comment"><a href="{% url 'newcomment' post.pk %}">Add comment</a></div>
+            {% for comment in post.comments.all %}
+            <div class="comment-single">
+                <strong> Par @{{ comment.id_user }} </strong>
+                <p> {{ comment.content }}</p>
+                {% if comment.id_user.username == user.username %}
+                <a href="{% url 'deletecomment' comment.pk %}">Delete</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
