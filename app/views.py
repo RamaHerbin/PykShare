@@ -84,7 +84,7 @@ class PostCreate(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
+@method_decorator(login_required, name='dispatch')
 class PostUpdate(UpdateView):
     model = Post
     # form_class =
@@ -92,7 +92,7 @@ class PostUpdate(UpdateView):
     success_url = reverse_lazy('feed')
     fields = ['title', 'image']
 
-
+@method_decorator(login_required, name='dispatch')
 class PostDelete(DeleteView):
     model = Post
     template_name = 'app/delete_post.html'
@@ -129,5 +129,11 @@ class CommentDelete(DeleteView):
 def AddLike(request, pk):
     # On prend le button avec name="post_id" (l.16 post_list.html)
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('feed'))

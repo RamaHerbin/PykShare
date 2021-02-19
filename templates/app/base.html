@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
-        <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/app.css">
 
     <title>PykShare</title>
 </head>
+<style>
+    #user-authentification span:nth-child(1) {
+        margin-right: 15px;
+    }
+
+    #pykshare{
+        padding: 0 1vw;
+
+    }
+
+    #pykshare:hover {
+        padding: 0 1vw;
+
+    }
+    
+</style>
+
 <body>
-<header>
-    <div>
-        <span>Hello, @{{ request.user }}</span>
-        <span><a href="{% url 'logout' %}">Se déconnecter</a></span>
-    </div>
-    <a id="pykshare" href="/feed">PykShare</a>
-    {#        <span><a href="{% url 'newpost' %}"><img alt="Ajoutez un post" src="app/img/add.png"></a></span>#}
-    <span><a href="{% url 'newpost' %}">Ajoutez</a></span>
-</header>
-<section class="container">
-    {% block content %}
-    {% endblock %}
-</section>
+    <header>
+        <div id="user-authentification">
+            <span>Hello,<strong> @{{ request.user }}</strong></span>
+            <span><a href="{% url 'logout' %}">Se déconnecter</a></span>
+        </div>
+        <a id="pykshare" href="/feed">PykShare</a>
+        {# <span><a href="{% url 'newpost' %}"><img alt="Ajoutez un post" src="app/img/add.png"></a></span>#}
+        <span><a href="{% url 'newpost' %}">Ajouter</a></span>
+    </header>
+    <section class="container">
+        {% block content %}
+        {% endblock %}
+    </section>
 </body>
+
 </html>

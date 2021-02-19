@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap");
+
 *,
 *::before,
 *::after {
@@ -68,12 +69,16 @@ body {
 }
 
 .div-img-content {
-  width: 66%;
+    width: 66%;
 }
 
 .posts {
   margin: 35px;
-  background: linear-gradient(180deg, #fcfbfb 0%, rgba(255, 255, 255, 0.72) 100%);
+  background: linear-gradient(
+    180deg,
+    #fcfbfb 0%,
+    rgba(255, 255, 255, 0.72) 100%
+  );
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   display: flex;
@@ -95,7 +100,9 @@ body {
 a {
   font-size: 20px;
   background: #ffffff;
-  box-shadow: 0px 4px 4px black;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 25%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 25%);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 1vh 1vw;
@@ -117,9 +124,12 @@ a:hover {
 
 .input {
   margin: 18px;
+
   font-size: 20px;
   background: #ffffff;
-  box-shadow: 0px 4px 4px black;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 25%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 25%);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 1vh 1vw;
@@ -256,7 +266,8 @@ a:hover {
   font-size: 15px;
   background: #dd0000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px 4px 4px #ff5733;
+  -webkit-box-shadow: 0px 4px 4px rgba(255, 87, 51, 90%);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 0;
@@ -272,6 +283,7 @@ a:hover {
 .comment-single a:hover {
   padding: 0;
 }
+
 
 .author-date-post {
   margin-top: 3vh;
@@ -292,7 +304,8 @@ a:hover {
   font-size: 20px;
   background: #dd0000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px 4px 4px #ff5733;
+  -webkit-box-shadow: 0px 4px 4px rgba(255, 87, 51, 90%);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 1vh 1vw;
@@ -307,7 +320,8 @@ a:hover {
   font-size: 20px;
   background: #f3bd20;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px 4px 4px #f3bd20;
+  -webkit-box-shadow: 0px 4px 4px rgba(243, 189, 32, 90%);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
   padding: 1vh 1vw;
@@ -336,6 +350,7 @@ a:hover {
   text-align: center;
   padding-left: 50px;
   padding-right: 50px;
+
   min-width: 150px;
 }
 
@@ -349,4 +364,3 @@ a:hover {
   justify-content: center;
   justify-items: center;
 }
-/*# sourceMappingURL=app.css.map */

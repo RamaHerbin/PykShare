@@ -1,84 +1,88 @@
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600;1,900&display=swap");
 
-        *,
-        *::before,
-        *::after {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box !important;
-            list-style: none;
-            list-style-type: none;
-            text-decoration: none;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-        }
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            /*background: url();*/
-            background: #7abecc;
-            height: 100vh;
-            padding-top: 5vh;
-            font-family: 'Poppins' !important;
-            font-weight: 600;
-            line-height: 1.5;
-            width: 100vw;
-            margin: 0 0;
-        }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("../img/bailey-zindel-NRQV-hBF10M-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 5vh;
+  font-family: "Poppins" !important;
+  font-weight: 600;
+  line-height: 1.5;
+  width: 100vw;
+  margin: 0 0;
+  color: #fff;
+}
 
-        #main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-        #main > div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+#main > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        #login-register {
-            margin-top: 3vh;
-        }
+#login-register {
+  margin-top: 3vh;
+}
 
-        #login-register span {
-            margin: 0 1vw;
-        }
+#login-register span {
+  margin: 0 1vw;
+}
 
-        h1 {
-            font-weight: 900;
-            font-size: 400%;
-        }
+h1 {
+  font-weight: 900;
+  font-size: 400%;
+  
+}
 
-        a {
-            font-size: 30px;
-            background: #FFFFFF;
-            -webkit-box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            border-radius: 6px;
-            padding: 1vh 1vw;
-            mix-blend-mode: multiply;
-            background-color: #fff;
-            color: #000;
-            mix-blend-mode: screen;
-            height: 65px;
-            opacity: 0.9;
-        }
+a {
+  font-size: 30px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 1vh 1vw;
+  mix-blend-mode: multiply;
+  background-color: #fff;
+  color: #000;
+  mix-blend-mode: screen;
+  height: 65px;
+  opacity: 0.9;
+}
 
-        a:hover {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
+a:hover {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}

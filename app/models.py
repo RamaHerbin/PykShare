@@ -25,9 +25,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.id_user, self.id_post.title)
-
-
-class Like(models.Model):
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    value = models.BooleanField()
